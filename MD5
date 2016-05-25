@@ -1,11 +1,12 @@
-6a421afeec9f181396e7a4af5dd4d99f *DESCRIPTION
+444542540f7f2a47bf791f9e88165abb *DESCRIPTION
 016aea719c47b2604ee56ebdfb93f032 *NAMESPACE
-2a162dfb357faefdc99e1a0e98f695bc *NEWS
+74fb56dd0f435ea80553ed96da2909c4 *NEWS
 57790f3bbbcee46e8326534246a8d568 *R/RcppExports.R
-9cfb73595dcc245fe6045e082c6d6b0f *R/genie-package.R
-b00a005ca53b54afb481d28322fb4e4c *R/hclust2.R
-694da1f52b8c2f705060fe5ab1aaac63 *man/genie-package.Rd
-e358d20cf258658fa89233287b24ea29 *man/hclust2.Rd
+6132b5f5cd606e40a1383bce5b6ac487 *R/genie-package.R
+bb5115a0dadb6ca2e9505eb095b22ca0 *R/hclust2.R
+10b0cb6dc748617ccebb257ff0eaebd0 *inst/CITATION
+49f925fdbf6147ffe24826bbb6e0da4b *man/genie-package.Rd
+a3a59cf37fead487b1e0bd17c0ca75ec *man/hclust2.Rd
 d75f89b94a6d7b50ade66d8acfb955f2 *src/Makevars
 d75f89b94a6d7b50ade66d8acfb955f2 *src/Makevars.win
 b6efbe20a0e62d0382ea74c0360a4d38 *src/RcppExports.cpp
@@ -28,4 +29,4 @@ b7d297642ae2db98b8e12cf08562473b *src/hclust2_result.h
 8eabd87eff27b7751cedd17ef6591229 *src/hclust2_vptree_single.cpp
 dbf8423ce4fb47350cc99ba8fdd1992f *src/hclust2_vptree_single.h
 ac0b48e83e47e2efe2d9e15b791155ac *tests/testthat.R
-8c7777cc309960702f8518f56390f0c9 *tests/testthat/test-single.R
+5a2370f089507fe281c93e3c512a0314 *tests/testthat/test-single.R
