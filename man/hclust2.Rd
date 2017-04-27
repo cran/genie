@@ -86,8 +86,8 @@ of choice is guaranteed to be computed for each unique pair of \code{objects}
 only once.
 }
 \examples{
-library(datasets)
-data(iris)
+library("datasets")
+data("iris")
 h <- hclust2(objects=as.matrix(iris[,2:3]), thresholdGini=0.2)
 plot(iris[,2], iris[,3], col=cutree(h, 3), pch=as.integer(iris[,5]))
 
@@ -102,6 +102,11 @@ Dinu L.P., Sgarro A., A Low-complexity Distance for DNA Strings,
 
 Gagolewski M., Bartoszuk M., Cena A.,
 Genie: A new, fast, and outlier-resistant hierarchical clustering algorithm,
-\emph{Information Sciences}, 2016, doi:10.1016/j.ins.2016.05.003.
-}
+\emph{Information Sciences} 363, 2016, pp. 8-23.
 
+Gagolewski M., Cena A., Bartoszuk M.
+\emph{Hierarchical clustering via penalty-based aggregation and the Genie
+approach}, In: Torra V. et al. (Eds.), \emph{Modeling Decisions for
+Artificial Intelligence} (\emph{Lecture Notes in Artificial Intelligence}
+9880), Springer, 2016.
+}

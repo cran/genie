@@ -75,8 +75,8 @@
 #' }
 #'
 #' @examples
-#' library(datasets)
-#' data(iris)
+#' library("datasets")
+#' data("iris")
 #' h <- hclust2(objects=as.matrix(iris[,2:3]), thresholdGini=0.2)
 #' plot(iris[,2], iris[,3], col=cutree(h, 3), pch=as.integer(iris[,5]))
 #'
@@ -90,14 +90,20 @@
 #'
 #' Gagolewski M., Bartoszuk M., Cena A.,
 #' Genie: A new, fast, and outlier-resistant hierarchical clustering algorithm,
-#' \emph{Information Sciences}, 2016, doi:10.1016/j.ins.2016.05.003.
+#' \emph{Information Sciences} 363, 2016, pp. 8-23.
 #'
+#' Gagolewski M., Cena A., Bartoszuk M.
+#' \emph{Hierarchical clustering via penalty-based aggregation and the Genie
+#' approach}, In: Torra V. et al. (Eds.), \emph{Modeling Decisions for
+#' Artificial Intelligence} (\emph{Lecture Notes in Artificial Intelligence}
+#' 9880), Springer, 2016.
+#'
+#' @importFrom stats approx
 #' @export
-hclust2 <- function(d=NULL, objects=NULL,
-   thresholdGini=0.3, useVpTree=FALSE, ...)
+hclust2 <- function(d=NULL, objects=NULL, thresholdGini=0.3, useVpTree=FALSE, ...)
 {
    opts <- list(thresholdGini=thresholdGini, useVpTree=useVpTree, ...)
-   result <- .hclust2_gini(d, objects, opts)
+   result <- .Call(genie_hclust2_gini, PACKAGE = 'genie', d, objects, opts)
    result[["call"]] <- match.call()
    result[["method"]] <- "gini"
 

@@ -12,4 +12,6 @@
 #'
 #' @references
 #' \emph{\pkg{genie} Package homepage}, \url{http://www.gagolewski.com/software/genie/}
+#' @useDynLib genie, .registration=TRUE
+#' @importFrom Rcpp evalCpp
 invisible(NULL)
