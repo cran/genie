@@ -1,10 +1,13 @@
 #' @title
-#' Fast Hierarchical Clustering in Arbitrary Spaces Equipped With
+#' Fast Hierarchical Clustering in Spaces Equipped With
 #' a Dissimilarity Measure
 #'
 #' @description
-#' An implementation of the fast, outlier resistant Genie algorithm
-#' described in (Gagolewski, Bartoszuk, Cena, 2016).
+#' The reference implementation of the fast, robust and outlier resistant
+#' Genie algorithm described in (Gagolewski, Bartoszuk, Cena, 2016).
+#' Note that the \code{genie} package has been superseded by \code{genieclust},
+#' see \code{\link[genieclust]{gclust}} and \code{\link[genieclust]{genie}}
+#' for more details.
 #'
 #' @param d an object of class \code{\link[stats]{dist}},
 #' \code{NULL}, or a single string, see below
@@ -12,8 +15,8 @@
 #' @param thresholdGini single numeric value in [0,1],
 #' threshold for the Gini index, 1 gives the standard single linkage algorithm
 #' @param useVpTree single logical value, whether to use a vantage-point tree
-#' to speed up nearest neighbor searching in low-dimensional spaces
-#' @param ... internal tuning parameters
+#' to speed up nearest neighbour searching in low-dimensional spaces
+#' @param ... internal parameters used to tune up the algorithm
 #'
 #' @details
 #' The time needed to apply a hierarchical clustering algorithm
@@ -71,14 +74,14 @@
 #' with additional components:
 #' \itemize{
 #'      \item \code{stats} -   performance statistics
-#'      \item \code{control} - internal tuning parameters used
+#'      \item \code{control} - internal parameters used
 #' }
 #'
 #' @examples
 #' library("datasets")
 #' data("iris")
 #' h <- hclust2(objects=as.matrix(iris[,2:3]), thresholdGini=0.2)
-#' plot(iris[,2], iris[,3], col=cutree(h, 3), pch=as.integer(iris[,5]))
+#' plot(iris[,2], iris[,3], col=cutree(h, 3), pch=as.integer(iris[,5]), asp=1, las=1)
 #'
 #' @references
 #' Cena A., Gagolewski M., Mesiar R., Problems and challenges of information
@@ -99,19 +102,26 @@
 #' 9880), Springer, 2016.
 #'
 #' @importFrom stats approx
+#' @importFrom genieclust gclust
+#' @importFrom genieclust genie
 #' @export
 hclust2 <- function(d=NULL, objects=NULL, thresholdGini=0.3, useVpTree=FALSE, ...)
 {
    opts <- list(thresholdGini=thresholdGini, useVpTree=useVpTree, ...)
-   result <- .Call(genie_hclust2_gini, PACKAGE = 'genie', d, objects, opts)
+   result <- .hclust2_gini(d, objects, opts)
    result[["call"]] <- match.call()
    result[["method"]] <- "gini"
 
    if (any(result[["height"]]<0)) {
+      # corrections for departures from ultrametricity
+      # negative heights denote force Genie merges
+      # we could just use have used cummax, but then we'd get multiple
+      # merges at the same level; instead we'll linearly interpolate
+      # between the points
       nonNegative <- which(result[["height"]]>=0)
       lastNonNegative <- nonNegative[length(nonNegative)]
       result[["height"]][1:lastNonNegative] <-
-         approx(nonNegative,
+         approx(nonNegative, # linear interpolation
             result[["height"]][nonNegative],
             1:lastNonNegative)$y
       result[["height"]][result[["height"]] < 0] <- cummax(-result[["height"]][result[["height"]] < 0])
