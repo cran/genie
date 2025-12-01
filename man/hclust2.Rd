@@ -5,7 +5,7 @@
 \title{Fast Hierarchical Clustering in Spaces Equipped With
 a Dissimilarity Measure}
 \usage{
-hclust2(d = NULL, objects = NULL, thresholdGini = 0.3, useVpTree = FALSE, ...)
+hclust2(d = NULL, objects = NULL, thresholdGini = 0.3, ...)
 }
 \arguments{
 \item{d}{an object of class \code{\link[stats]{dist}},
@@ -15,9 +15,6 @@ hclust2(d = NULL, objects = NULL, thresholdGini = 0.3, useVpTree = FALSE, ...)
 
 \item{thresholdGini}{single numeric value in [0,1],
 threshold for the Gini index, 1 gives the standard single linkage algorithm}
-
-\item{useVpTree}{single logical value, whether to use a vantage-point tree
-to speed up nearest neighbour searching in low-dimensional spaces}
 
 \item{...}{internal parameters used to tune up the algorithm}
 }
@@ -82,10 +79,6 @@ denotes a distinct observation), then \code{d} should be
 a single string, one of: \code{euclidean_squared} (or \code{NULL}),
 \code{euclidean} (which yields the same results as \code{euclidean_squared})
 \code{manhattan}, \code{maximum}, or \code{hamming}.
-
-If \code{useVpTree} is \code{FALSE}, then the dissimilarity measure
-of choice is guaranteed to be computed for each unique pair of \code{objects}
-only once.
 }
 \examples{
 library("datasets")

@@ -2,11 +2,20 @@
 % Please edit documentation in R/genie-package.R
 \docType{package}
 \name{genie-package}
-\alias{genie-package}
 \alias{genie}
+\alias{genie-package}
 \title{The Genie Package}
 \description{
 See \code{\link{hclust2}()} for details.
+}
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://genieclust.gagolewski.com/}
+  \item \url{https://github.com/gagolews/genie}
+  \item Report bugs at \url{https://github.com/gagolews/genie/issues}
+}
+
 }
 \author{
 Marek Gagolewski, Maciej Bartoszuk, Anna Cena

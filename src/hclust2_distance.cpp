@@ -1,7 +1,7 @@
 /* ************************************************************************* *
  *   This file is part of the `genie` package for R.                         *
  *                                                                           *
- *   Copyright 2015-2018 Marek Gagolewski, Maciej Bartoszuk, Anna Cena       *
+ *   Copyright 2015-2025 Marek Gagolewski, Maciej Bartoszuk, Anna Cena       *
  *                                                                           *
  *   'genie' is free software: you can redistribute it and/or                *
  *   modify it under the terms of the GNU General Public License             *
@@ -546,7 +546,7 @@ StringDistanceDouble::StringDistanceDouble(const Rcpp::List& vectors) :
       items[i] = REAL(cur);
 
       for (size_t j=0; j<lengths[i]; ++j)
-         if (items[i][j] == NA_REAL)
+         if (ISNA(items[i][j]))
             Rcpp::stop("missing values in input objects are not allowed");
    }
 }

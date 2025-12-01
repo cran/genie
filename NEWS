@@ -1,6 +1,12 @@
                    genie package NEWS and CHANGELOG
 ===============================================================================
 
+
+## 1.0.6 (2025-12-01)
+
+* 'useVpTree' has been removed.
+
+
 ## 1.0.5 (2020-08-02)
 
 * Updated documentation and package metadata.

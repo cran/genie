@@ -1,7 +1,7 @@
 /* ************************************************************************* *
  *   This file is part of the `genie` package for R.                         *
  *                                                                           *
- *   Copyright 2015-2018 Marek Gagolewski, Maciej Bartoszuk, Anna Cena       *
+ *   Copyright 2015-2025 Marek Gagolewski, Maciej Bartoszuk, Anna Cena       *
  *                                                                           *
  *   'genie' is free software: you can redistribute it and/or                *
  *   modify it under the terms of the GNU General Public License             *
