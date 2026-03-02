@@ -1,8 +1,8 @@
 Package: genie
 Type: Package
 Title: Fast, Robust, and Outlier Resistant Hierarchical Clustering
-Version: 1.0.6
-Date: 2025-12-01
+Version: 1.0.7
+Date: 2026-03-02
 Authors@R: c(
     person("Marek", "Gagolewski",
         role = c("aut", "cre", "cph"),
@@ -15,8 +15,8 @@ Authors@R: c(
         role = "aut",
         comment = c(ORCID = "0000-0001-8697-5383"))
     )
-Description: Includes the basic implementation of Genie - a hierarchical
-    clustering algorithm that links two point groups in such a way that
+Description: Implements a basic version of the hierarchical clustering algorithm
+    'Genie' which links two point groups in such a way that
     an inequity measure (namely, the Gini index) of the cluster sizes
     does not significantly increase above a given threshold.
     This method most often outperforms many other data segmentation approaches
@@ -24,8 +24,7 @@ Description: Includes the basic implementation of Genie - a hierarchical
     datasets. At the same time, Genie retains the high speed of the single
     linkage approach, therefore it is also suitable for analysing larger data sets.
     For more details see (Gagolewski et al. 2016 <DOI:10.1016/j.ins.2016.05.003>).
-    For an even faster and more feature-rich implementation, including,
-    amongst others, see the 'genieclust' package
+    For a faster and more feature-rich implementation, see the 'genieclust' package
     (Gagolewski, 2021 <DOI:10.1016/j.softx.2021.100722>).
 License: GPL (>= 3)
 BugReports: https://github.com/gagolews/genie/issues
@@ -33,16 +32,15 @@ URL: https://genieclust.gagolewski.com/,
         https://github.com/gagolews/genie
 Depends: R (>= 4.0.0), stats, genieclust
 Imports: Rcpp (>= 1.0.0)
-Suggests: datasets, testthat, stringi
 LinkingTo: Rcpp (>= 1.0.0)
 Encoding: UTF-8
-RoxygenNote: 7.3.2
+RoxygenNote: 7.3.3
 NeedsCompilation: yes
-Packaged: 2025-12-01 17:10:49 UTC; gagolews
+Packaged: 2026-03-02 10:40:15 UTC; gagolews
 Author: Marek Gagolewski [aut, cre, cph] (ORCID:
     <https://orcid.org/0000-0003-0637-6028>),
   Maciej Bartoszuk [aut] (ORCID: <https://orcid.org/0000-0001-6088-8273>),
   Anna Cena [aut] (ORCID: <https://orcid.org/0000-0001-8697-5383>)
 Maintainer: Marek Gagolewski <marek@gagolewski.com>
 Repository: CRAN
-Date/Publication: 2025-12-01 18:10:02 UTC
+Date/Publication: 2026-03-02 11:30:02 UTC

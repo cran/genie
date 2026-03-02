@@ -19,7 +19,6 @@
 
 
 #include "hclust2_mstbased_gini.h"
-#include "hclust2_vptree_single.h"
 
 using namespace grup;
 
@@ -49,7 +48,7 @@ HclustPriorityQueue HClustMSTbasedGini::getMST()
 
    HclustPriorityQueue out(n);
 
-   vector<size_t> todo(n-1); // elements which are still not in the spanning tree
+   std::vector<size_t> todo(n-1); // elements which are still not in the spanning tree
    for (size_t k=0; k<n-1; ++k) todo[k] = k+1;
    std::vector<double> Adist(n, INFINITY);
    std::vector<size_t> Afrom(n, SIZE_MAX);
@@ -139,23 +138,7 @@ HClustResult HClustMSTbasedGini::compute()
 {
    HclustPriorityQueue pq;
 
-   if (opts->useVpTree) {
-      HClustVpTreeSingle hclust(distance, opts);
-      HClustResult res = hclust.compute(/*merge,order not needed*/opts->thresholdGini < 1.0);
-      if (opts->thresholdGini >= 1.0) return res;
-
-      Rcpp::NumericMatrix links = res.getLinks();
-      Rcpp::NumericVector dist  = res.getHeight();
-      STOPIFNOT((size_t)dist.size() == n-1);
-      STOPIFNOT((size_t)links.nrow() == n-1);
-      pq = HclustPriorityQueue(n);
-      for (size_t i=0; i<n-1; ++i) {
-         pq.push(HeapHierarchicalItem((size_t)links(i,0), (size_t)links(i,1), (double)dist[i]));
-      }
-   }
-   else {
-      pq = getMST();
-   }
+   pq = getMST();
 
    HClustResult res(n, distance);
    PhatDisjointSets ds(n);

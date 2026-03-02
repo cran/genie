@@ -410,8 +410,8 @@ struct HClustOptions
    size_t minNNPrefetch;    //
    size_t minNNMerge;       //
    // std::string exemplar;      //
-   bool useVpTree;
-   bool useMST;
+   // bool useVpTree;
+   // bool useMST;
    size_t vpSelectScheme;   // vp-tree and GNAT
    size_t vpSelectCand;     // for vpSelectScheme == 1
    size_t vpSelectTest;     // for vpSelectScheme == 1

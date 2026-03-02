@@ -17,7 +17,6 @@
  *   along with 'genie'. If not, see <http://www.gnu.org/licenses/>.         *
  * ************************************************************************* */
 
-#include "hclust2_vptree_gini.h"
 #include "hclust2_mstbased_gini.h"
 
 using namespace Rcpp;
